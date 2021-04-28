@@ -6,14 +6,14 @@ This is a quick reference on how to ssh into a host server without using a passw
 ssh-keygen -t rsa -b 4096
 ```
 
-### 2. Copy public key to host (automatically)
-> Windows users must use step 
+### 2. Copy public key to host automatically
+> Windows users must use the manual process below.
 ```
 REMOTE_HOST=pi@raspberrypi
 ssh-copy-id $REMOTE_HOST
 ```
 
-### 3. Copy public key to host (manully)
+### 3. Copy public key to host manully
 For linux/macos
 ```
 REMOTE_HOST=pi@raspberrypi
