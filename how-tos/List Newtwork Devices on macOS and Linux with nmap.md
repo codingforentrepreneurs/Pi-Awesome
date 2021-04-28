@@ -18,14 +18,14 @@ sudo apt install nmap -y
 
 #### on macOS
 ```
-IP_ADD=$(ipconfig getifaddr en0)
+HOST_IP=$(ipconfig getifaddr en0)
 ```
-> Run `echo $IP_ADD` to see the result. Mine is `192.168.86.20`
+> Run `echo $HOST_IP` to see the result. Mine is `192.168.86.20`
 
 
 #### on Linux
 ```
-IP_ADD=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+HOST_IP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 ```
 
 
@@ -34,8 +34,13 @@ IP_ADD=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 ```
 TARGET_HOST=raspberry
-nmap -sn $IP_ADD/24 | grep "${TARGET_HOST}"
+nmap -sn $HOST_IP/24 | grep "${TARGET_HOST}"
 ```
-> `grep` will perform a search on the results of `nmap -sn $IP_ADD/24`
+The `| grep "${TARGET_HOST}` is optional but helps narrow our search to `raspberry` in this case.
 
-The above command (in my case) maps to `nmap -sn 192.168.86.20/24 | grep "raspberry"`. If you need to manually execute commands, you can do so.
+The above command (in my case) maps to:
+```
+nmap -sn 192.168.86.20/24 | grep "raspberry"
+```
+So you can see the final result without environment variables.
+

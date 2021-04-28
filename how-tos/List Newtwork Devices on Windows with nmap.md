@@ -25,3 +25,11 @@ Search using `nmap`
 $env:PI_Name = "raspberry"
 nmap -sn $env:HostIP/24 | Select-String $env:PI_Name
 ```
+
+The `| Select-String $env:PI_Name` is optional but helps narrow our search to `raspberry` in this case.
+
+The above command (in my case) maps to:
+```
+nmap -sn 192.168.86.24/24 | Select-String "raspberry"
+```
+So you can see the final result without environment variables.
