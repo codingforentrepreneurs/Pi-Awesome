@@ -44,3 +44,30 @@ nmap -sn 192.168.86.20/24 | grep "raspberry"
 ```
 So you can see the final result without environment variables.
 
+
+### 4. (Optional) Add shortcut to Bash Profile or Zshell Profile
+
+macOS / zshell
+```
+sudo nano ~/.zshrc
+```
+
+Linux / bash
+
+```
+sudo nano ~/.bashrc
+```
+
+Add the following line:
+```
+alias devices='nmap -sn $(ipconfig getifaddr en0)/24'
+```
+
+Save and close. 
+
+
+Run `source ~/.zshrc` / `source ~/.bashrc` or open a new terminal window.
+
+```
+devices
+```
