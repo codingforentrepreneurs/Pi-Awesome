@@ -1,7 +1,13 @@
 # List Network Devices on Windows with `nmap`
-Find devices on network with Windows
+Find devices on network with Windows.
 
-Open powershell and type the following commands
+### 1. Download `nmap`
+
+[Link](https://nmap.org/download.html)
+
+
+
+#### 2. Open `powershell` and type the following commands
 
 ```
 $env:HostIP = (
@@ -12,21 +18,27 @@ $env:HostIP = (
     }
 ).IPv4Address.IPAddress
 ```
+
 Verify with 
 ```
 $env:HostIP
 ```
-> This number should also be listed in the results of `arp -a
+
+> This number should also be listed in the results of `arp -a`
 
 
-Search using `nmap`
+### 3. Search using `nmap`
 
 ```
 $env:PI_Name = "raspberry"
 nmap -sP $env:HostIP/24 | Select-String $env:PI_Name
 ```
 
-The `| Select-String $env:PI_Name` is optional but helps narrow our search to `raspberry` in this case.
+The `| Select-String $env:PI_Name` is optional but helps narrow our search to `raspberry` in this case. If you don't want to narrow devices just run:
+
+```
+nmap -sP $env:HostIP/24
+```
 
 The above command (in my case) maps to:
 ```
