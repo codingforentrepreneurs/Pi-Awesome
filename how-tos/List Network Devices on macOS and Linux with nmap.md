@@ -34,13 +34,13 @@ HOST_IP=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 ```
 TARGET_HOST=raspberry
-nmap -sn $HOST_IP/24 | grep "${TARGET_HOST}"
+nmap -sP $HOST_IP/24 | grep "${TARGET_HOST}"
 ```
 The `| grep "${TARGET_HOST}` is optional but helps narrow our search to `raspberry` in this case.
 
 The above command (in my case) maps to:
 ```
-nmap -sn 192.168.86.20/24 | grep "raspberry"
+nmap -sP 192.168.86.20/24 | grep "raspberry"
 ```
 So you can see the final result without environment variables.
 
@@ -60,7 +60,7 @@ sudo nano ~/.bashrc
 
 Add the following line:
 ```
-alias devices='nmap -sn $(ipconfig getifaddr en0)/24'
+alias devices='nmap -sP $(ipconfig getifaddr en0)/24'
 ```
 
 Save and close. 
