@@ -7,7 +7,7 @@ Find devices on network with Windows.
 
 
 
-#### 2. Open `powershell` and type the following commands
+### 2. Open `powershell` and type the following commands
 
 ```
 $env:HostIP = (
