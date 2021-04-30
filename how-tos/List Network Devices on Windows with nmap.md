@@ -1,5 +1,5 @@
 # List Network Devices on Windows with `nmap`
-Find devices on network with Windows.
+Find devices on network with Windows. Looking for [macOS or Linux](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/List%20Network%20Devices%20on%20macOS%20and%20Linux%20with%20nmap.md)?
 
 ### 1. Download `nmap`
 
