@@ -1,6 +1,8 @@
 # Supervisor as a Background Service Manager
 [Supervisor](http://supervisord.org/), often called supervisord, is a simple way to manage processes that you need your pi to run. In our case, we're using it to run a [minimal python web application (flask)](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/Create%20a%20Minimal%20Web%20Application%20with%20Nginx%2C%20Python%2C%20Flask%20%26%20Raspberry%20Pi.md).
 
+
+
 ### 1. Install
 ```
 sudo apt install supervisor -y
@@ -13,7 +15,7 @@ sudo service supervisor start
 ```
 
 ### 3. Create a Supervisor Process
-
+> Be sure to [enable the correct permissions](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/User%20Group%20Permissions.md) on the `user` or the user's `group` so the below process can actually run. 
 All of your custom processes will live in the following directory:
 ```
 /etc/supervisor/conf.d/
