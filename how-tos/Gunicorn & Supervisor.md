@@ -108,6 +108,8 @@ You can also use the `--pid /home/pi/app/flaskapp.pid` to do this with less step
 kill $(cat /home/pi/app/flaskapp.pid)
 ```
 > `cat /home/pi/app/flaskapp.pid` will yield the contents of the file (as you may know). `$(cat /home/pi/app/flaskapp.pid)` yeilds the contents of the file as an argument to a command.
+ 
+
 If you have `supervisor` setup correctly, a new `flaskapp.pid` file should so up almost right away. This is because we have our `supervisor` config to include `autorestart=true`.
 
 Pretty neat huh?
