@@ -42,7 +42,7 @@ stderr_logfile=/var/log/www/flaskapp/stderr.log
 
 - **`directory`**: Default working directory
 
-- **`command`**: What command do we need this process to run? In my case, I'm using a Python virtual environment (ie `/home/pi/app/bin/`) with [gunicorn](https://gunicorn.org/) installed. This command can be any valid `bash shell` command.
+- **`command`**: What command do we need this process to run? In my case, I'm using a Python virtual environment (ie `/home/pi/app/bin/`) with [gunicorn](https://gunicorn.org/) installed. This command can be any valid `bash shell` command. For more on [gunicorn & supervisor go here](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/Gunicorn%20%26%20Supervisor.md).
 
 - **`autostart`**: start on system boot (true / false)
 - **`autorestart`** Restart on failure (true / false)
