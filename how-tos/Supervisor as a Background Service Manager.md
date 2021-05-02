@@ -16,6 +16,7 @@ sudo service supervisor start
 
 ### 3. Create a Supervisor Process
 > Be sure to [enable the correct permissions](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/User%20Group%20Permissions.md) on the `user` or the user's `group` so the below process can actually run. 
+
 All of your custom processes will live in the following directory:
 ```
 /etc/supervisor/conf.d/
