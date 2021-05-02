@@ -49,9 +49,15 @@ stderr_logfile=/var/log/www/flaskapp/stderr.log
 - **`stdout_logfile`** `stdout` log file location
 - **`stderr_logfile`** `stderr` log file location
 
+#### 4. Update Supervisor
+```
+sudo supervisorctl reread
+sudo supervisorctl update
+```
+> These two commands will let supervisor know of our new process (`reread`) and it will run it (`update`).
 
 
-#### 4. Verify Commands
+#### 5. Verify Commands
 
 ```
 sudo supervisorctl status flaskapp
@@ -61,7 +67,7 @@ sudo supervisorctl restart flaskapp
 ```
 
 
-#### 5. Check logs
+#### 6. Check logs
 
 In our `project.supervisor.conf` from Step 3, we have the following log paths:
 
