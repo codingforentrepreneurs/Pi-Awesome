@@ -4,7 +4,7 @@ In [this post](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/ho
 
 
 
-via a development server. Now we're going to setup supervisor to use [gunicorn]() as a production-ready web server gateway interface (wsgi).
+via a development server. Now we're going to setup supervisor to use [gunicorn](https://gunicorn.org/) as a production-ready web server gateway interface (wsgi).
 
 ### Current Status
 
