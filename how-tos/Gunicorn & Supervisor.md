@@ -38,7 +38,7 @@ exec /home/pi/app/bin/gunicorn --pid /home/pi/app/flaskapp.pid  --bind 0.0.0.0:8
 Let's break this down:
 
 - **`#!/bin/bash`**: This header declares which shell to execute the file with. In this case we're using the `bash` shell. 
-- **`exec`: this means execute. If you omit this line, supervisor will not monitor gunicorn but rather `run.sh`. (Thanks to [this wonderful comment](https://github.com/benoitc/gunicorn/issues/520#issuecomment-48244743).)
+- **`exec`**: this means execute. If you omit this line, supervisor will not monitor gunicorn but rather `run.sh`. (Thanks to [this wonderful comment](https://github.com/benoitc/gunicorn/issues/520#issuecomment-48244743).)
 - **`/home/pi/app/gunicorn`** this is the absolute path to the Python virtual envioronment-installed gunicorn.
 - **`--pid /home/pi/app/flaskapp.pid`** (you can use `-p` or `--pid`). This line designates were to store the process id. (more on this later)
 - **`--bind 0.0.0.0:8000`**: this is binding our gunicorn app to `PORT` 8000 on the localhost (`0.0.0.0`)
