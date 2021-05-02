@@ -46,7 +46,7 @@ ls -al /var | grep www
 **Reboot & Test**
 
 ```
-sudo Reboot
+sudo reboot
 ```
 
 ```
