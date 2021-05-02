@@ -92,17 +92,16 @@ nano /var/repos/flaskapp.git/hooks/post-receive
 Within `post-receive`:
 
 ```bash
-#/bin/bash
+#!/bin/bash
 
-git --work-tree=/var/www/flaskapp/ --git-dir=/var/repos/flaskapp.git/ -b main checkout -f
-sudo supervisor restart gunicorn
+git --work-tree=/var/www/flaskapp/ --git-dir=/var/repos/flaskapp.git/ checkout -f
+sudo supervisorctl restart flaskapp
 ```
 Let's break this `post-receive` file down:
 
 - **`git`**: this is the shell command for everything `git` related
 - **`--work-tree`** This is our project's working directory.
 - **`--git-dir`** this is the `git` managed directory where our code lives. I recommend keeping this seprate from your `--work-tree` to keep your running code isoloated from your code history.
-- **`-b main`** this is the branch you want your server to run (ie `supervisor` and `gunicorn`)
 - **`checkout`** this is a command to switch to the `HEAD` of your code (ie the most recent commit to the specificed/default branch).
 - **`-f`** will force the code to change (ie ignoring any file changes in your `--work-tree`)
 
