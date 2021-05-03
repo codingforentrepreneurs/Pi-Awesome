@@ -114,7 +114,7 @@ In my project, I have a `run.sh` that `supervisor` calls. I will update this com
 
 #!/bin/bash
 
-/var/www/flaskapp/bin/python -m pip install -r /var/www/flaskapp/requirements.txt;exit 0;
+/var/www/flaskapp/bin/python -m pip install -r /var/www/flaskapp/requirements.txt;
 
 exec /var/www/flaskapp/gunicorn --pid /var/www/flaskapp/flaskapp.pid --bind 0.0.0.0:8000  --workers 4 wsgi:app
 ```
