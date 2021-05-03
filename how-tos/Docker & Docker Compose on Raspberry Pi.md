@@ -2,20 +2,35 @@
 Docker isolates our applications so it's much more reusable across any machine that runs docker. Docker Compose helps us manage several containers at once in coordination with each other. Learn more about [Docker & Docker Compose in this tutorial series](https://www.codingforentrepreneurs.com/projects/docker-and-docker-compose).
 
 
-### 1. Update & Upgrade System
+### 1. Update, Upgrade, & Clear Out the Old
 
 ```
 sudo apt update && sudo apt upgrade
 ```
 
-> Do you have `supervisor` running your apps like we did in [this one]? If so, remove supervisor as docker will manage itself.
+*Do you have `supervisor` running your apps like we did in [this one](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/Supervisor%20as%20a%20Background%20Service%20Manager.md)? If so, remove supervisor as docker will manage itself*
 
 ```
-sudo apt-get remove supervisor  # remove the package
-sudo apt-get purge supervisor   # remove the package and all configs
+sudo apt-get purge supervisor # removes everying including config files
 ```
 
-> Do you want to remove all of docker and start fresh? run `sudo apt remove docker-ce*`
+*Do you have `nginx` running like we did in [this one](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux.md)? If so, remove it as we'll use Docker to run nginx:*
+
+```
+sudo apt-get purge nginx nginx-common # removes everying including config files
+```
+
+*Do you want to remove all of docker and start fresh?*
+
+```
+sudo apt remove docker-ce*
+```
+
+Remove stale packages:
+
+```
+sudo apt-get autoremove
+```
 
 
 ### 2. Install Docker
@@ -199,6 +214,7 @@ Above we use `-d` to run `docker-compose` in detached mode. Now we can stop it w
 docker-compose down -f path/to/your/docker-compose.yaml
 ```
 
+
 ### 8. Update single service
 
 ```
@@ -207,5 +223,6 @@ docker-compose rm -f  flaskapp
 docker-compose up --build -d flaskapp 
 ```
 > This will allow `nginx` to continue running while the `flaskapp` service is rebuilt
- 
-If you are using `git` for your deployments like we setup [in this one](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/Setup%20Git%20%26%20Version%20Control%20on%20your%20Pi%20Server.md) then you can use the above commands to rebuild your web application in the git `post-receive` signal.
+
+
+
