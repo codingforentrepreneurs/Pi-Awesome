@@ -37,9 +37,29 @@ sudo apt-get autoremove
 ```
 curl -sSL https://get.docker.com | sh
 ```
+> This installs `docker-engine`.
+
+Verify docker is installed with:
+
+```
+sudo systemctl status docker
+```
+and
+```
+sudo docker ps
+```
+
+If we run `docker ps` we'll see a permissions error. Let's add our user to the `docker` group.
 
 
-### 3. Install Docker Compose
+### 3. Add user to `docker` group
+```
+sudo usermod -a -G docker $(whoami)
+```
+Reboot or logout/login to finalize group changes
+
+
+### 4. Install Docker Compose
 > At this time, `docker-compose` must be installed via your global python3 installation *after* docker is installed above.
 
 ```
@@ -55,7 +75,7 @@ sudo python3 -m pip install docker-compose
 
 
 
-### 3. Minimal Gunicorn-based Flask App
+### 5. Minimal Gunicorn-based Flask App
 For this example, I'll be using the directory `/var/www/flaskapp` to store all of the files created. 
 
 
@@ -94,7 +114,7 @@ RUN_PORT=${PORT:-8010}
 
 
 
-### Minimal Dockerfile for Flask/Django/FastAPI
+### 6. Minimal Dockerfile for Flask/Django/FastAPI
 
 `Dockerfile`
 ```
@@ -125,7 +145,7 @@ __py_cache__/
 
 
 
-### 4. Minimal Nginx Configuration
+### 7. Minimal Nginx Configuration
 
 ```
 upstream flaskappproxy {
@@ -153,7 +173,7 @@ server {
 ```
 Be sure to note that `flaskapp` is the service name while `flaskappproxy` is merely the proxy name within nginx. The `flaskapp` service name will be used below in `docker-compose.yaml`. The port of `8081` will be reused below as well.
 
-### 5. Dockerfile for `nginx`
+### 8. Dockerfile for `nginx`
 
 
 `Dockerfile.nginx`
@@ -164,7 +184,7 @@ COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
 
-### Minimal `docker-compose.yaml`
+### 9. Minimal `docker-compose.yaml`
 
 
 ```dockerfile
@@ -193,7 +213,7 @@ services:
 ```
 
 
-### 6. Run Docker Compose
+### 10. Run Docker Compose
 
 ```
 sudo docker-compose up -d --build
@@ -208,14 +228,14 @@ Let's break this down:
 - **`--build`** means `docker-compose` will build the necessary container images
 
 
-### 7. Stop Docker Compose
+### 11. Stop Docker Compose
 Above we use `-d` to run `docker-compose` in detached mode. Now we can stop it with:
 ```
 docker-compose down -f path/to/your/docker-compose.yaml
 ```
 
 
-### 8. Update single service
+### 12. Update single service
 
 ```
 docker-compose stop flaskapp
