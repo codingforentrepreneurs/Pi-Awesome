@@ -86,6 +86,8 @@ This `git` hook allows us to trigger:
 - Run continous integration / continous deployment (`ci/cd`)
 
 ```
+touch /var/repos/flaskapp.git/hooks/post-receive
+chmod +x /var/repos/flaskapp.git/hooks/post-receive
 nano /var/repos/flaskapp.git/hooks/post-receive
 ```
 
