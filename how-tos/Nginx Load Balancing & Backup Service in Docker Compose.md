@@ -11,7 +11,7 @@ This guide assumes you know how to use [Docker & Docker Compose](https://www.cod
 
 
 Our `docker-compose.yaml`
-```docker-compose
+```yaml
 version: '3.2'
 services:
     flaskservice:
@@ -67,7 +67,7 @@ First off, load balancing is about distributing traffic in a way that doesn't ov
 
 Since we're using Docker compose, we need to create additional services to handle this load prior to updating our nginx configuration. We'll do that adding the `gotyourback` service to our `docker-compose.yaml`:
 
-```
+```yaml
 service:
     ...
     gotyourback:
@@ -87,7 +87,7 @@ Now that we have this service we can update our nginx configuration.
 ## Update nginx proxy
 
 As of now, this is our nginx proxy server:
-```
+```nginx
 upstream flaskappproxy {
     server flaskservice:8001;
 }
@@ -95,7 +95,7 @@ upstream flaskappproxy {
 
 The `flaskservice:8001` is directly correlated to the `docker-compose.yaml` configuration for the `flaskservice` service. We can modify this proxy server to have additional entries:
 
-```
+```nginx
 upstream flaskappproxy {
     server flaskservice:8001;
     server gotyourback:8002;
@@ -104,8 +104,8 @@ upstream flaskappproxy {
 
 And yes, we can add another service to `docker-compose.yaml`:
 
-```
-service:
+```yaml
+services:
     ...
     redudantservice:
         restart: 'always'
@@ -129,7 +129,7 @@ service:
 
 And again, update `nginx.conf`:
 
-```
+```nginx
 upstream flaskappproxy {
     server flaskservice:8001;
     server gotyourback:8002;
@@ -148,7 +148,7 @@ In many cases you'll want to implement a backup server so that you can take down
 
 This is a very simple change to our `upstream` configuration:
 
-```
+```nginx
 upstream flaskappproxy {
     server flaskservice:8001;
     server gotyourback:8002 backup;
