@@ -34,17 +34,29 @@ docker-compose build flaskservice
 #     exit 400;
 # fi
 
+if [[ $(git -C /var/repos/flaskapp.git/ diff --name-only HEAD~1 HEAD | grep nginx.conf) ]]; then
+    # check if `nginx.conf` changed; rebuild service.
+    docker-compose build nginx;
+    docker-compose stop nginx;
+    docker-compose rm -f nginx;
+    docker-compose up -d nginx;
+fi
 
-if [[ $(docker ps | grep gotyourback) ]]; then
-    docker-compose build gotyourback;
-    docker-compose stop gotyourback;
-    docker-compose rm -f gotyourback;
-    docker-compose up -d gotyourback;
+if [[ $(docker ps | grep nginx) == "" ]]; then
+    # check nginx is down, bring up service
+    docker-compose up -d --build nginx;
+fi
+
+
+
+if [[ $(docker ps | grep gotyourback) == "" ]]; then
+    # check backup service is down, start it.
+    docker-compose up --no-deps -d --build gotyourback;
 fi
 
 docker-compose stop flaskservice
 docker-compose rm -f flaskservice
-docker-compose up -d flaskservice --remove-orphans
+docker-compose up --no-deps --remove-orphans -d flaskservice 
 ```
 
 Be sure to run `chmod +x /var/repos/flaskapp.git/hooks/post-receive` if you haven't already.
