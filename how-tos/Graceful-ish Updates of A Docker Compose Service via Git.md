@@ -19,6 +19,14 @@ WORK_DIR=/var/www/flaskapp/
 git --work-tree=$WORK_DIR --git-dir=/var/repos/flaskapp.git/ checkout HEAD -f
 
 cd $WORK_DIR
+bash "${WORK_DIR}build.sh"
+```
+
+Let's move our primary `post-receive` commands into a new bash script in the root of our project.
+
+`build.sh`
+```bash
+#!/bin/bash
 docker-compose build flaskservice
 
 
@@ -59,6 +67,6 @@ docker-compose rm -f flaskservice
 docker-compose up --no-deps --remove-orphans -d flaskservice 
 ```
 
-Be sure to run `chmod +x /var/repos/flaskapp.git/hooks/post-receive` if you haven't already.
+Be sure to run `chmod +x /var/repos/flaskapp.git/hooks/post-receive` and `chmod +x /var/www/flaskapp/build.sh` if you haven't already.
 
 Now just push your code and see the results.
