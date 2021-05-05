@@ -27,7 +27,49 @@ Let's move our primary `post-receive` commands into a new bash script in the roo
 `build.sh`
 ```bash
 #!/bin/bash
-docker-compose build flaskservice
+
+NGINX_GIT_CHANGED=$(git -C /var/repos/flaskapp.git/ diff --name-only HEAD~1 HEAD | grep "nginx/")
+NGINX_RUNNING=$(docker ps | grep nginx)
+
+APP_CODE_CHANGED=$(git -C /var/repos/flaskapp.git/ diff --name-only HEAD~1 HEAD | grep "app/")
+
+if [[ $NGINX_GIT_CHANGED ]]; then
+    echo "Nginx has changed, rebuilding..."
+    docker-compose down
+    docker-compose up -d --build
+fi
+
+if [[ $NGINX_RUNNING == "" ]]; then
+    echo "Nginx is not running. Bringing Up"
+    docker-compose up -d --build
+fi
+
+FLASKSERVICE_RUNNING=$(docker ps | grep flaskservice)
+
+if [[ $FLASKSERVICE_RUNNING == "" ]]; then
+    echo "Flask app service is not running. Bringing Up"
+    docker-compose up -d --build flaskservice dosservice
+fi
+
+BACKUP_SERVER_RUNNING=$(docker ps | grep backupservice)
+if [[ $BACKUP_SERVER_RUNNING == "" ]]; then
+    echo "Backup service is not running. Bringing Up"
+    docker-compose up -d --build backupservice
+fi
+
+if [[ $APP_CODE_CHANGED ]]; then 
+    echo "Flask service code changed, rebuilding service"
+    docker-compose build flaskservice dosservice tresservice backupservice
+    docker-compose stop flaskservice dosservice tresservice
+    docker-compose rm -f flaskservice dosservice tresservice
+    docker-compose up -d --no-deps flaskservice dosservice tresservice
+    if [[ $(docker ps | grep flaskservice) ]]; then
+        echo "Flask service rebuilt and up, rebuilding backup"
+        docker-compose stop backupservice
+        docker-compose rm -f backupservice
+        docker-compose up -d --build backupservice
+    fi
+fi
 
 
 # # Here's an example of running tests in this recently built
@@ -41,30 +83,6 @@ docker-compose build flaskservice
 #     echo "Tests failed. Not finishing service update."
 #     exit 400;
 # fi
-
-if [[ $(git -C /var/repos/flaskapp.git/ diff --name-only HEAD~1 HEAD | grep nginx.conf) ]]; then
-    # check if `nginx.conf` changed; rebuild service.
-    docker-compose build nginx;
-    docker-compose stop nginx;
-    docker-compose rm -f nginx;
-    docker-compose up -d nginx;
-fi
-
-if [[ $(docker ps | grep nginx) == "" ]]; then
-    # check nginx is down, bring up service
-    docker-compose up -d --build nginx;
-fi
-
-
-
-if [[ $(docker ps | grep gotyourback) == "" ]]; then
-    # check backup service is down, start it.
-    docker-compose up --no-deps -d --build gotyourback;
-fi
-
-docker-compose stop flaskservice
-docker-compose rm -f flaskservice
-docker-compose up --no-deps --remove-orphans -d flaskservice 
 ```
 
 Be sure to run `chmod +x /var/repos/flaskapp.git/hooks/post-receive` and `chmod +x /var/www/flaskapp/build.sh` if you haven't already.
