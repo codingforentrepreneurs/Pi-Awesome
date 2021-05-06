@@ -12,7 +12,7 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 
 
-### [How-Tos](how-tos)
+### [How-Tos](/how-tos)
 - [Activate an Nginx  Web Server on a Raspberry Pi or any Linux](/how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux) ([Raw](/how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux.md))
 
 - [Create a Minimal Web Application with Nginx, Python, Flask & Raspberry Pi](/how-tos/Create%20a%20Minimal%20Web%20Application%20with%20Nginx%2C%20Python%2C%20Flask%20%26%20Raspberry%20Pi) ([Raw](/how-tos/Create%20a%20Minimal%20Web%20Application%20with%20Nginx%2C%20Python%2C%20Flask%20%26%20Raspberry%20Pi.md))
