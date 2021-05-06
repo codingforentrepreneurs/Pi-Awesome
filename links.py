@@ -31,6 +31,7 @@ for path in BASE_DIR.glob("**/*.md"):
         link = f"{page_link} ([Raw]({raw_link}))"
     all_links[parent_str]["links"].append(link)
     all_links[parent_str]["links"].sort(key=lambda x: x[1])
+
 link_markdown = ""
 for folder, values in all_links.items():
     if str(folder) == "." or str(folder) == "shell-scripts":
@@ -68,14 +69,16 @@ for item in script_list:
     path = pathlib.Path(item)
     link = f"#### `{path.stem}{path.suffix}`\n"
     link += f"[Download]({str(path)})\n\n"
-    link += f"[Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/{str(path)})\n"
+    link += f"[Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/{str(path)})\n"  # noqa
     description = path.parent / f"{path.stem}.md"
     if description.exists():
         link += "\n"
         link += description.read_text() + "\n\n"
     shell_scipts_links_str += link
 
-print(shell_scipts_links_str)
-index_str = root_readme_str + "\n" + link_markdown + "\n\n" + shell_scipts_links_str
+
+index_str = root_readme_str + "\n"
+index_str += link_markdown + "\n\n"
+index_str += shell_scipts_links_str
 index_md = BASE_DIR / "index.md"
 index_md.write_text(index_str)
