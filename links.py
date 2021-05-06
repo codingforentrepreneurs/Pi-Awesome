@@ -13,7 +13,7 @@ for path in BASE_DIR.glob("**/*.md"):
         continue
     if parent_str not in all_links:
         all_links[parent_str] = {
-            "title": f"[{parent_str.title()}]({parent_str})",
+            "title": f"[{parent_str.title()}](/{parent_str})",
             "links": [],
         }
     if path_stem.lower() == "index":
