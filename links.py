@@ -15,6 +15,7 @@ for path in BASE_DIR.glob("**/*.md"):
         all_links[parent_str] = {
             "title": f"[{parent_str.title()}](/{parent_str})",
             "links": [],
+            "raw_links": [],
         }
     if path_stem.lower() == "index":
         continue
@@ -26,6 +27,7 @@ for path in BASE_DIR.glob("**/*.md"):
     raw_link = ""
     if "md" in path.suffix:
         raw_link = f"/{path_quote}"
+        all_links[parent_str]["raw_links"].append(f"[{path.stem}]({raw_link})")
     link = page_link
     if raw_link != "":
         link = f"{page_link} ([Raw]({raw_link}))"
@@ -33,19 +35,26 @@ for path in BASE_DIR.glob("**/*.md"):
     all_links[parent_str]["links"].sort(key=lambda x: x[1])
 
 link_markdown = ""
+raw_markdown = ""
 for folder, values in all_links.items():
     if str(folder) == "." or str(folder) == "shell-scripts":
         continue
     folder_index_md = ""
+    folder_raw_md = ""
     for k, v in values.items():
         if k == "title":
             if v.strip() == ".":
                 continue
             folder_index_md += f"### {v}\n"
+            folder_raw_md += f"### {v}\n"
         if k == "links":
             for link in v:
                 folder_index_md += f"- {link}\n"
                 folder_index_md += "\n"
+        if k == "raw_links":
+            for link in v:
+                folder_raw_md += f"- {link}\n"
+                folder_raw_md += "\n"
     folder_path = BASE_DIR / folder
     folder_idx = folder_path / "index.md"
     folder_readme_str = ""
@@ -54,7 +63,9 @@ for folder, values in all_links.items():
         folder_readme_str = folder_readme_path.read_text()
     folder_idx.write_text(folder_readme_str + "\n\n" + folder_index_md)
     folder_index_md += "\n"
+    folder_raw_md += "\n"
     link_markdown += folder_index_md
+    raw_markdown += folder_raw_md
 
 root_header_md = BASE_DIR / "header.md"
 root_readme_str = ""
@@ -96,9 +107,15 @@ index_str += shell_scipts_links_str
 index_md = BASE_DIR / "index.md"
 index_md.write_text(index_str)
 
-readme_md = BASE_DIR / "README.md"
+
 readme_title_str = ""
 readme_title_md = BASE_DIR / "header_title.md"
 if readme_title_md.exists():
     readme_title_str = readme_title_md.read_text()
-readme_md.write_text(f"{readme_title_str}\n{index_str}")
+readme_md_str = readme_title_str + "\n"
+readme_md_str += root_readme_str + "\n"
+readme_md_str += raw_markdown + "\n\n"
+readme_md_str += shell_scipts_links_str
+readme_md = BASE_DIR / "README.md"
+
+readme_md.write_text(readme_md_str)
