@@ -22,10 +22,10 @@ for path in BASE_DIR.glob("**/*.md"):
         continue
     article_quote = quote(path.stem)
     path_quote = quote(str(path))
-    page_link = f"[{path.stem}]({path.parent}/{article_quote})"
+    page_link = f"[{path.stem}](/{path.parent}/{article_quote})"
     raw_link = ""
     if "md" in path.suffix:
-        raw_link = f"{path_quote}"
+        raw_link = f"/{path_quote}"
     link = page_link
     if raw_link != "":
         link = f"{page_link} ([Raw]({raw_link}))"
