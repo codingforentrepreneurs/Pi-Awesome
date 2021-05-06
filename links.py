@@ -71,11 +71,12 @@ for item in script_list:
     link += f"[Download]({str(path)}) | "
     link += f"[Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/{str(path)})\n"  # noqa
     fname = path.name
-    cmd_1 = f"curl -sSL https://www.piawesome.com/shell-scripts/{fname}"
+    cmd_1 = f"curl https://www.piawesome.com/shell-scripts/{fname} -O {fname}"
     cmd_2 = f"chmod +x {fname}"
     cmd_3 = f"sh {fname}"
     run_command = f"```\n{cmd_1}\n{cmd_2}\n{cmd_3}\n```"
-    root_command = f"```\nsudo {cmd_1} | sh \n```"
+    cmd_ssl = f"curl -sSL https://www.piawesome.com/shell-scripts/{fname}"
+    root_command = f"```\nsudo {cmd_ssl} | sh \n```"
     description = path.parent / f"{path.stem}.md"
     if description.exists():
         link += "\n"
