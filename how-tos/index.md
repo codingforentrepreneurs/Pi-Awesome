@@ -1,6 +1,5 @@
-﻿# Pi Awesome
-
-References and guides to using & setting up a raspberry pi for your projects.
+## Pi Server Guides
+These guides are made so you can turn your pi into a networked server (either at home or at work).
 
 ### [How-Tos](how-tos)
 - [Activate an Nginx  Web Server on a Raspberry Pi or any Linux](how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux)
@@ -32,5 +31,4 @@ References and guides to using & setting up a raspberry pi for your projects.
 - [Supervisor as a Background Service Manager](how-tos/Supervisor%20as%20a%20Background%20Service%20Manager)
 
 - [User Group Permissions](how-tos/User%20Group%20Permissions)
-
 
