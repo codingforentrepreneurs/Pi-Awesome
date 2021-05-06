@@ -1,0 +1,1 @@
+PiCamera, dlib, face recognition compiler and installer script

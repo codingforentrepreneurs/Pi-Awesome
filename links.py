@@ -56,12 +56,17 @@ for folder, values in all_links.items():
     folder_index_md += "\n"
     link_markdown += folder_index_md
 
-root_readme_md = BASE_DIR / "README.md"
+root_header_md = BASE_DIR / "header.md"
 root_readme_str = ""
-if root_readme_md.exists():
-    root_readme_str = root_readme_md.read_text()
+if root_header_md.exists():
+    root_readme_str = root_header_md.read_text()
+    root_readme_str += "\n\n"
 
-shell_scipts_links_str = "## Shell scripts\n"
+shell_scipts_links_str = ""
+shell_scipts_header_md = BASE_DIR / "shell-scripts" / "header.md"
+if shell_scipts_header_md.exists():
+    shell_scipts_links_str += shell_scipts_header_md.read_text()
+    shell_scipts_links_str += "\n\n"
 
 script_list = list(BASE_DIR.glob("**/*.sh"))
 script_list.sort()
@@ -90,3 +95,6 @@ index_str += link_markdown + "\n\n"
 index_str += shell_scipts_links_str
 index_md = BASE_DIR / "index.md"
 index_md.write_text(index_str)
+
+readme_md = BASE_DIR / "README.md"
+readme_md.write_text(index_str)

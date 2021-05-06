@@ -1,0 +1,1 @@
+gPhoto2 is a tool to control digital cameras with code and a USB connection. [Supported Cameras](http://www.gphoto.org/doc/remote/).

@@ -1,1 +1,1 @@
-A quick script to setup opencv on your linux machine.
+OpenCV is a great tool for performing computer vision analysis on your Pi.

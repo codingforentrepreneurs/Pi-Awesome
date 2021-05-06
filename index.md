@@ -1,6 +1,17 @@
-﻿# Pi Awesome
+# [Pi Awesome](https://www.piawesome.com)
 
 References and guides to using & setting up a raspberry pi for your projects.
+
+Find errors? Please submit an [issue](https://github.com/codingforentrepreneurs/Pi-Awesome/issues/new) or [pull request](https://github.com/codingforentrepreneurs/Pi-Awesome/pulls).
+
+### Resources:
+- [Github Repo](https://github.com/codingforentrepreneurs/Pi-Awesome)
+- [Website](https://www.piawesome.com)
+
+### Course(s)
+- [Pi Server](https://cfe.sh/projects/pi-server)
+
+
 
 ### [How-Tos](how-tos)
 - [Activate an Nginx  Web Server on a Raspberry Pi or any Linux](how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux) ([Raw](how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux.md))
@@ -39,8 +50,16 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 
 ## Shell scripts
+
+These setup scripts are designed and tested on [Raspberry PI OS](https://www.raspberrypi.org/software/). It can work on [Raspbian](http://www.raspbian.org) as well as other works on other Linux distros too.
+
+Find errors? Please submit an [issue](https://github.com/codingforentrepreneurs/Pi-Awesome/issues/new) or [pull request](https://github.com/codingforentrepreneurs/Pi-Awesome/pulls).
+
 ### `gphoto2-updater.sh`
 [Download](shell-scripts/gphoto2-updater.sh) | [Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/shell-scripts/gphoto2-updater.sh)
+
+gPhoto2 is a tool to control digital cameras with code and a USB connection. [Supported Cameras](http://www.gphoto.org/doc/remote/).
+
 
 
 ```
@@ -48,7 +67,7 @@ sudo curl -sSL https://www.piawesome.com/shell-scripts/gphoto2-updater.sh | sh
 ```
 Or
 ```
-curl -sSL https://www.piawesome.com/shell-scripts/gphoto2-updater.sh
+curl https://www.piawesome.com/shell-scripts/gphoto2-updater.sh -O gphoto2-updater.sh
 chmod +x gphoto2-updater.sh
 sh gphoto2-updater.sh
 ```
@@ -62,7 +81,7 @@ sudo curl -sSL https://www.piawesome.com/shell-scripts/setup-face-recognition.sh
 ```
 Or
 ```
-curl -sSL https://www.piawesome.com/shell-scripts/setup-face-recognition.sh
+curl https://www.piawesome.com/shell-scripts/setup-face-recognition.sh -O setup-face-recognition.sh
 chmod +x setup-face-recognition.sh
 sh setup-face-recognition.sh
 ```
@@ -70,7 +89,7 @@ sh setup-face-recognition.sh
 ### `setup-opencv.sh`
 [Download](shell-scripts/setup-opencv.sh) | [Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/shell-scripts/setup-opencv.sh)
 
-A quick script to setup opencv on your linux machine.
+OpenCV is a great tool for performing computer vision analysis on your Pi.
 
 
 
@@ -79,7 +98,7 @@ sudo curl -sSL https://www.piawesome.com/shell-scripts/setup-opencv.sh | sh
 ```
 Or
 ```
-curl -sSL https://www.piawesome.com/shell-scripts/setup-opencv.sh
+curl https://www.piawesome.com/shell-scripts/setup-opencv.sh -O setup-opencv.sh
 chmod +x setup-opencv.sh
 sh setup-opencv.sh
 ```
