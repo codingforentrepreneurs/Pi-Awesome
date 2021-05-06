@@ -39,7 +39,7 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 
 ## Shell scripts
-#### `gphoto2-updater.sh`
+### `gphoto2-updater.sh`
 [Download](shell-scripts/gphoto2-updater.sh) | [Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/shell-scripts/gphoto2-updater.sh)
 
 
@@ -53,7 +53,7 @@ chmod +x gphoto2-updater.sh
 sh gphoto2-updater.sh
 ```
 
-#### `setup-face-recognition.sh`
+### `setup-face-recognition.sh`
 [Download](shell-scripts/setup-face-recognition.sh) | [Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/shell-scripts/setup-face-recognition.sh)
 
 
@@ -67,7 +67,7 @@ chmod +x setup-face-recognition.sh
 sh setup-face-recognition.sh
 ```
 
-#### `setup-opencv.sh`
+### `setup-opencv.sh`
 [Download](shell-scripts/setup-opencv.sh) | [Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/shell-scripts/setup-opencv.sh)
 
 A quick script to setup opencv on your linux machine.

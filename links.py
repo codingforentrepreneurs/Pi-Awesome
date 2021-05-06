@@ -67,7 +67,7 @@ script_list = list(BASE_DIR.glob("**/*.sh"))
 script_list.sort()
 for item in script_list:
     path = pathlib.Path(item)
-    link = f"#### `{path.stem}{path.suffix}`\n"
+    link = f"### `{path.stem}{path.suffix}`\n"
     link += f"[Download]({str(path)}) | "
     link += f"[Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/{str(path)})\n"  # noqa
     fname = path.name
