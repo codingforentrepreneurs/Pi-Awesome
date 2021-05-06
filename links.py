@@ -21,7 +21,14 @@ for path in BASE_DIR.glob("**/*.md"):
     if path_stem.lower() == "readme":
         continue
     article_quote = quote(path.stem)
-    link = f"[{path.stem}]({path.parent}/{article_quote})"
+    path_quote = quote(str(path))
+    page_link = f"[{path.stem}]({path.parent}/{article_quote})"
+    raw_link = ""
+    if "md" in path.suffix:
+        raw_link = f"{path_quote}"
+    link = page_link
+    if raw_link != "":
+        link = f"{page_link} ([Raw]({raw_link}))"
     all_links[parent_str]["links"].append(link)
     all_links[parent_str]["links"].sort(key=lambda x: x[1])
 link_markdown = ""
