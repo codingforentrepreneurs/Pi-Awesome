@@ -33,7 +33,7 @@ for path in BASE_DIR.glob("**/*.md"):
     all_links[parent_str]["links"].sort(key=lambda x: x[1])
 link_markdown = ""
 for folder, values in all_links.items():
-    if str(folder) == ".":
+    if str(folder) == "." or str(folder) == "shell-scripts":
         continue
     folder_index_md = ""
     for k, v in values.items():
@@ -60,6 +60,22 @@ root_readme_str = ""
 if root_readme_md.exists():
     root_readme_str = root_readme_md.read_text()
 
-index_str = root_readme_str + "\n" + link_markdown
+shell_scipts_links_str = "## Shell scripts\n"
+
+script_list = list(BASE_DIR.glob("**/*.sh"))
+script_list.sort()
+for item in script_list:
+    path = pathlib.Path(item)
+    link = f"#### `{path.stem}{path.suffix}`\n"
+    link += f"[Download]({str(path)})\n\n"
+    link += f"[Raw](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/{str(path)})\n"
+    description = path.parent / f"{path.stem}.md"
+    if description.exists():
+        link += "\n"
+        link += description.read_text() + "\n\n"
+    shell_scipts_links_str += link
+
+print(shell_scipts_links_str)
+index_str = root_readme_str + "\n" + link_markdown + "\n\n" + shell_scipts_links_str
 index_md = BASE_DIR / "index.md"
 index_md.write_text(index_str)
