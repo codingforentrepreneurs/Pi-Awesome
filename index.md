@@ -23,6 +23,8 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 - [List Network Devices on macOS and Linux with nmap](how-tos/List%20Network%20Devices%20on%20macOS%20and%20Linux%20with%20nmap)
 
+- [Mange Pi with Ansible](how-tos/Mange%20Pi%20with%20Ansible)
+
 - [Nginx Load Balancing & Backup Service in Docker Compose](how-tos/Nginx%20Load%20Balancing%20%26%20Backup%20Service%20in%20Docker%20Compose)
 
 - [SSH to Host without Password](how-tos/SSH%20to%20Host%20without%20Password)
