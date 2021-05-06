@@ -97,4 +97,8 @@ index_md = BASE_DIR / "index.md"
 index_md.write_text(index_str)
 
 readme_md = BASE_DIR / "README.md"
-readme_md.write_text(index_str)
+readme_title_str = ""
+readme_title_md = BASE_DIR / "header_title.md"
+if readme_title_md.exists():
+    readme_title_str = readme_title_md.read_text()
+readme_md.write_text(f"{readme_title_str}\n{index_str}")
