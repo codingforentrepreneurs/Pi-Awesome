@@ -59,7 +59,7 @@ gPhoto2 is a tool to control digital cameras with code and a USB connection. [Su
 
 
 ```
-sudo curl -sSL https://www.piawesome.com/shell-scripts/gphoto2-updater.sh | sh 
+ curl -sSL https://www.piawesome.com/shell-scripts/gphoto2-updater.sh | sudo sh 
 ```
 Or
 ```
@@ -73,7 +73,7 @@ sh gphoto2-updater.sh
 
 
 ```
-sudo curl -sSL https://www.piawesome.com/shell-scripts/setup-face-recognition.sh | sh 
+ curl -sSL https://www.piawesome.com/shell-scripts/setup-face-recognition.sh | sudo sh 
 ```
 Or
 ```
@@ -90,7 +90,7 @@ OpenCV is a great tool for performing computer vision analysis on your Pi.
 
 
 ```
-sudo curl -sSL https://www.piawesome.com/shell-scripts/setup-opencv.sh | sh 
+ curl -sSL https://www.piawesome.com/shell-scripts/setup-opencv.sh | sudo sh 
 ```
 Or
 ```
