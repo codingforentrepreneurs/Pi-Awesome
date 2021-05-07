@@ -92,7 +92,7 @@ for item in script_list:
     cmd_3 = f"sh {fname}"
     run_command = f"```\n{cmd_1}\n{cmd_2}\n{cmd_3}\n```"
     cmd_ssl = f"curl -sSL https://www.piawesome.com/shell-scripts/{fname}"
-    root_command = f"```\n {cmd_ssl} | sudo sh \n```"
+    root_command = f"```\n{cmd_ssl} | sudo sh \n```"
     description = path.parent / f"{path.stem}.md"
     if description.exists():
         link += "\n"
