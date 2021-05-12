@@ -28,3 +28,15 @@ The groups `www-logs` and `www-git` where created at other times. In the [Pi Ser
 sudo reboot
 ```
 To ensure all change take effect, reboot your server.
+
+
+### 5. Verify with Password via `ssh`
+```
+ssh tony@raspberrypi
+```
+If you setup `ssh` keys like we did [here](https://github.com/codingforentrepreneurs/Pi-Awesome/blob/main/how-tos/SSH%20to%20Host%20without%20Password.md) you won't need to use your password. To force a password to be used do this instead:
+```
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no tony@raspberrypi
+```
+
+
