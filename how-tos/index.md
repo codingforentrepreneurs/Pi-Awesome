@@ -4,6 +4,8 @@ These guides are made so you can turn your pi into a networked server (either at
 ### [How-Tos](/how-tos)
 - [Activate an Nginx  Web Server on a Raspberry Pi or any Linux](/how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux) ([Raw](/how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux.md))
 
+- [Add New User on Pi or Linux](/how-tos/Add%20New%20User%20on%20Pi%20or%20Linux) ([Raw](/how-tos/Add%20New%20User%20on%20Pi%20or%20Linux.md))
+
 - [Create a Minimal Web Application with Nginx, Python, Flask & Raspberry Pi](/how-tos/Create%20a%20Minimal%20Web%20Application%20with%20Nginx%2C%20Python%2C%20Flask%20%26%20Raspberry%20Pi) ([Raw](/how-tos/Create%20a%20Minimal%20Web%20Application%20with%20Nginx%2C%20Python%2C%20Flask%20%26%20Raspberry%20Pi.md))
 
 - [Change Hostname on Linux](/how-tos/Change%20Hostname%20on%20Linux) ([Raw](/how-tos/Change%20Hostname%20on%20Linux.md))

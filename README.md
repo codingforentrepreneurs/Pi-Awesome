@@ -32,6 +32,8 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 - [List Network Devices on Windows with nmap](/how-tos/List%20Network%20Devices%20on%20Windows%20with%20nmap.md)
 
+- [Add New User on Pi or Linux](/how-tos/Add%20New%20User%20on%20Pi%20or%20Linux.md)
+
 - [User Group Permissions](/how-tos/User%20Group%20Permissions.md)
 
 - [Change Hostname on Linux](/how-tos/Change%20Hostname%20on%20Linux.md)
