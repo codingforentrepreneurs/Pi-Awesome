@@ -48,6 +48,8 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 - [Supervisor as a Background Service Manager](/how-tos/Supervisor%20as%20a%20Background%20Service%20Manager.md)
 
+- [Flash Hypriot as your Pi OS](/how-tos/Flash%20Hypriot%20as%20your%20Pi%20OS.md)
+
 
 
 
