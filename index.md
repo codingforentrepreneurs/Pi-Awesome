@@ -45,7 +45,7 @@
 
 - [User Group Permissions](/how-tos/User%20Group%20Permissions) ([Raw](/how-tos/User%20Group%20Permissions.md))
 
-
+- [Flash Hypriot as your Pi OS](/how-tos/Flash%20Hypriot%20as%20your%20Pi%20OS) ([Raw](/how-tos/Flash%20Hypriot%20as%20your%20Pi%20OS.md))
 
 
 ## Shell scripts
