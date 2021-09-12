@@ -17,5 +17,6 @@ jobs:
         run: |
           git config --global user.name 'CFE Auto'
           git config --global user.email 'codingentrepreneurs@users.noreply.github.com'
+          git checkout "${GITHUB_REF:11}"
           git commit -am "Automated link generation"
           git push
