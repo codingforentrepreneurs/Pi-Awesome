@@ -41,5 +41,19 @@ Remember that:
 - `/media/ssd-1` is the destination I created for this drive. You can mount it anwyhere you choose but `/media/` is one of the most common.
 
 
+## 5. Verify again
+```
+lsblk
+```
+
+Responds with
+```
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0  1.8T  0 disk /media/ssd-1
+mmcblk0     179:0    0 29.7G  0 disk 
+├─mmcblk0p1 179:1    0  256M  0 part /boot
+└─mmcblk0p2 179:2    0 29.5G  0 part /
+```
+
 ### Additional notes
 Some posts mentioned installing `nfs-common` (`sudo apt install nfs-common -y`) will ensure the above works.
