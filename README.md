@@ -16,6 +16,8 @@ References and guides to using & setting up a raspberry pi for your projects.
 ### [How-Tos](/how-tos)
 - [List Network Devices on macOS and Linux with nmap](/how-tos/List%20Network%20Devices%20on%20macOS%20and%20Linux%20with%20nmap.md)
 
+- [Mount SATA on Turing PI](/how-tos/Mount%20SATA%20on%20Turing%20PI.md)
+
 - [Docker & Docker Compose on Raspberry Pi](/how-tos/Docker%20%26%20Docker%20Compose%20on%20Raspberry%20Pi.md)
 
 - [Get PI Stats](/how-tos/Get%20PI%20Stats.md)
@@ -49,8 +51,6 @@ References and guides to using & setting up a raspberry pi for your projects.
 - [Nginx Load Balancing & Backup Service in Docker Compose](/how-tos/Nginx%20Load%20Balancing%20%26%20Backup%20Service%20in%20Docker%20Compose.md)
 
 - [Activate an Nginx  Web Server on a Raspberry Pi or any Linux](/how-tos/Activate%20an%20Nginx%20%20Web%20Server%20on%20a%20Raspberry%20Pi%20or%20any%20Linux.md)
-
-- [Mount-SATA-on-Turing-PI](/how-tos/Mount-SATA-on-Turing-PI.md)
 
 - [User Group Permissions](/how-tos/User%20Group%20Permissions.md)
 

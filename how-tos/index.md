@@ -26,9 +26,9 @@ These guides are made so you can turn your pi into a networked server (either at
 
 - [List Network Devices on Windows with nmap](/how-tos/List%20Network%20Devices%20on%20Windows%20with%20nmap) ([Raw](/how-tos/List%20Network%20Devices%20on%20Windows%20with%20nmap.md))
 
-- [Mange Pi with Ansible](/how-tos/Mange%20Pi%20with%20Ansible) ([Raw](/how-tos/Mange%20Pi%20with%20Ansible.md))
+- [Mount SATA on Turing PI](/how-tos/Mount%20SATA%20on%20Turing%20PI) ([Raw](/how-tos/Mount%20SATA%20on%20Turing%20PI.md))
 
-- [Mount-SATA-on-Turing-PI](/how-tos/Mount-SATA-on-Turing-PI) ([Raw](/how-tos/Mount-SATA-on-Turing-PI.md))
+- [Mange Pi with Ansible](/how-tos/Mange%20Pi%20with%20Ansible) ([Raw](/how-tos/Mange%20Pi%20with%20Ansible.md))
 
 - [Nginx Load Balancing & Backup Service in Docker Compose](/how-tos/Nginx%20Load%20Balancing%20%26%20Backup%20Service%20in%20Docker%20Compose) ([Raw](/how-tos/Nginx%20Load%20Balancing%20%26%20Backup%20Service%20in%20Docker%20Compose.md))
 
