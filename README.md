@@ -22,6 +22,8 @@ References and guides to using & setting up a raspberry pi for your projects.
 
 - [Get PI Stats](/how-tos/Get%20PI%20Stats.md)
 
+- [Configure PI User for Ansible](/how-tos/Configure%20PI%20User%20for%20Ansible.md)
+
 - [Gunicorn & Supervisor](/how-tos/Gunicorn%20%26%20Supervisor.md)
 
 - [Create a Minimal Web Application with Nginx, Python, Flask & Raspberry Pi](/how-tos/Create%20a%20Minimal%20Web%20Application%20with%20Nginx%2C%20Python%2C%20Flask%20%26%20Raspberry%20Pi.md)
